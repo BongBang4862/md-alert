@@ -27,6 +27,13 @@ function md_alert(data) {
 		if (data.type) {
 			content += '<div class=icon><img src="'+data.type +'.png" alt=""></div>'
 		}
+
+		if (data.msg) {
+			msg = data.msg;
+		}else{
+			msg = 'Error desconocido'
+		}
+		content += '<h5>'+msg+'</h5>'
 		md_alert_content.innerHTML=content;
 		md_alert_status('show');
 	}
