@@ -1,10 +1,13 @@
 var base = location.protocol+'//'+location.host;
+
+
 document.addEventListener('DOMContentLoaded', function(){
+	md_alert_dom = document.getElementById('md_alert_dom');
+	md_alert_content = document.getElementById('md_alert_content');
+	md_alert_btn_close = document.getElementById('md_alert_btn_close');
+	md_alert_footer_other_btns=document.getElementById('md_alert_footer_other_btns');
+	
 	document.getElementById('only_show').addEventListener('click',function (e) {
-		md_alert_dom = document.getElementById('md_alert_dom');
-		md_alert_content = document.getElementById('md_alert_content');
-		md_alert_btn_close = document.getElementById('md_alert_btn_close');
-		md_alert_footer_other_btns=document.getElementById('md_alert_footer_other_btns');
 		if (md_alert_btn_close) {
 			md_alert_btn_close.addEventListener('click',function (e) {
 				e.preventDefault();

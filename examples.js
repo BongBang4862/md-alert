@@ -5,6 +5,6 @@ document.addEventListener('DOMContentLoaded', function(){
 	})
 	document.getElementById('alert_with_actions').addEventListener('click',function (e) {
 		e.preventDefault();
-		md_alert({title:'Alerta', type:'success', msg :'Todo un exito', actions: JSON.stringify([{url: base+'/login', name: 'Ingresar', type: 'success'},{url: base+'/login', name: 'Info', type: 'info'},{url: base+'/login', name: 'Error', type: 'error'},{url: base+'/login', name: 'Danger', type: 'danger'}])});
+		md_alert({title:'Alerta', type:'success', msg :'Todo un exito', actions: JSON.stringify([{url: base+'/login', name: 'Ingresar', type: 'success'},{url: base+'/login', name: 'Info', type: 'info'},{url: base+'/login', name: 'Principal', type: 'primary'},{url: base+'/login', name: 'Danger', type: 'danger'}])});
 	})
 })
