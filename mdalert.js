@@ -34,6 +34,17 @@ function md_alert(data) {
 			msg = 'Error desconocido'
 		}
 		content += '<h5>'+msg+'</h5>'
+
+		if (data.msgs) {
+			messages = JSON.parse(data.msgs);
+			if (messages.length > 0) {
+				content += '<ul>';
+					messages.forEach(function (element,index) {
+						content += '<li><i class="bi bi-bug-fill"></i> '+ element+'</li>'
+					})
+				content += '</ul>';
+			}
+		}
 		md_alert_content.innerHTML=content;
 		md_alert_status('show');
 	}
