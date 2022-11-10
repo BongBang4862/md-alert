@@ -3,7 +3,8 @@ var base = location.protocol+'//'+location.host;
 
 document.addEventListener('DOMContentLoaded', function(){
 	md_alert_dom = document.getElementById('md_alert_dom');
-	md_alert_content = document.getElementById('md_alert_content');
+	md_alert_dom = document.getElementById('md_alert_dom');
+	md_alert_inside = document.getElementById('md_alert_inside');
 	md_alert_btn_close = document.getElementById('md_alert_btn_close');
 	md_alert_footer_other_btns=document.getElementById('md_alert_footer_other_btns');
 	
@@ -58,10 +59,17 @@ function md_alert(data) {
 			if (actions.length > 0) {
 				actions.forEach(function(element,index){
 					if (element.url) {
-
 						actions_btns += '<a href="'+element.url+'" class ="btn btn-'+element.type+'">'+element.name+'</a>'
+					}else{
+						actions_btns += '<a href="#" onclick="'+element.callback+'('+element.params+'); return false;" class ="btn btn-'+element.type+'">'+element.name+'</a>'
 					}
 				})
+			}
+		}
+		if (data.additional) {
+			additional = JSON.parse(data.additional);
+			if (additional.hideclose) {
+				document.getElementById('md_alert_btn_close').style.display = 'none';
 			}
 		}
 		md_alert_footer_other_btns.innerHTML = actions_btns
@@ -72,9 +80,20 @@ function md_alert(data) {
 }
 function md_alert_status(status) {
 	if (status == 'show') {
+		document.getElementsByTagName('body')[0].style.overflow = "hidden";
+		document.getElementsByClassName('wrapper')[0].classList.add("blur");
 		md_alert_dom.style.display = 'flex';
+		md_alert_dom.classList.remove("md_alert_animation_hide");
+		md_alert_dom.classList.add("md_alert_animation_show");
+		md_alert_inside.classList.add("scale_animation");
 	}
 	if (status == 'hide') {
+		document.getElementsByTagName('body')[0].style.removeProperty("overflow");
+		document.getElementsByClassName('wrapper')[0].classList.remove("blur");
 		md_alert_dom.style.display = 'none';
+		md_alert_dom.classList.add("md_alert_animation_hide");
+		md_alert_dom.classList.remove("md_alert_animation_show");
+		md_alert_inside.classList.remove("scale_animation");
+
 	}
 }
