@@ -8,14 +8,18 @@ document.addEventListener('DOMContentLoaded', function(){
 	md_alert_footer_other_btns=document.getElementById('md_alert_footer_other_btns');
 	
 	document.getElementById('only_show').addEventListener('click',function (e) {
-		if (md_alert_btn_close) {
-			md_alert_btn_close.addEventListener('click',function (e) {
-				e.preventDefault();
-				md_alert_status('hide');
-			})
+			if (md_alert_btn_close) {
+				funcionalidad_de_boton_cerrar();
+			}
 		}
 	})
 })
+function funcionalidad_de_boton_cerrar() {
+			md_alert_btn_close.addEventListener('click',function (e) {
+				e.preventDefault();
+				md_alert_status('hide');
+			}
+}
 function md_alert(data) {
 	md_alert_content.innerHTML = "";
 	if (data) {
