@@ -14,4 +14,17 @@ document.addEventListener('DOMContentLoaded', function(){
 		funcionalidad_de_boton_cerrar();
 		md_alert({title:'Desea Eliminar?', type:'delete', msg :'si elimina este elemento no lo podra recueperar', actions: JSON.stringify([{url: base+'/delete', name: 'delete', type: 'danger'}])});
 	})
+	document.getElementById('alert_callback').addEventListener('click',function (e) {
+		e.preventDefault();
+		funcionalidad_de_boton_cerrar();
+		md_alert({title:'Desea Eliminar?', type:'delete', msg :'si elimina este elemento no lo podra recuperar', actions: JSON.stringify([{url: base+'/delete', name: 'delete', type: 'danger'},{callback:'callback_alert',params:"'param1','param2'", name: 'Si,eliminar', type: 'danger'}])});
+	})
+	document.getElementById('alert_no_close').addEventListener('click',function (e) {
+		e.preventDefault();
+		funcionalidad_de_boton_cerrar();
+		md_alert({title:'Desea Eliminar?', type:'delete', msg :'si elimina este elemento no lo podra recuperar', actions: JSON.stringify([{url: base+'/delete', name: 'delete', type: 'danger'}]), additional: JSON.stringify({hideclose: true})});
+	})
 })
+function callback_alert (param1,param2) {
+	console.log(param1,param2)
+}

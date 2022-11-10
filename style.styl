@@ -1,3 +1,5 @@
+.blur
+	filter blur(2px)
 .md_alert
 		background-color rgba(0, 0, 0,0.5)
 		align-items center
@@ -11,7 +13,7 @@
 		.md_alert_inside
 			background-color #fff
 			border-radius 12px
-			width 86%
+			width 320px
 		.md_alert_content
 			color #333
 			box-sizing border-box
@@ -82,6 +84,43 @@
 				text-decoration none
 				text-align: center
 				width 100%
-		
-		
-		
+.md_alert_animation_show
+	animation-timing-function ease-in-out
+	animation alert_show 0.5s forwards;
+.md_alert_animation_hide
+	animation-timing-function ease-in-out
+	animation alert_hide 0.5s forwards;
+.scale_animation
+	animation scale 0.5s forwards;	
+	transition all .6 ease
+@keyframes alert_show {
+	0% {
+		opacity: 0
+	}
+	100%{
+		opacity: 1
+	}
+}
+
+@keyframes alert_hide {
+	0% {
+		opacity: 1
+	}
+	100%{
+		opacity: 0
+	}
+}
+@keyframes scale {
+	0% {
+		transform : scale(0.9)
+	}
+	100%{
+		transform : scale(1)
+
+	}
+}
+@media only screen and (max-width: 480px)
+	.md_alert
+		.md_alert_inside
+			width 86%
+	
