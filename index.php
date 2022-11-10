@@ -28,6 +28,9 @@
 		<div class="col-4 col-md-2">
 			<a href="" id="alert_with_actions" class="btn btn-primary w-100">Acciones</a>
 		</div>
+		<div class="col-4 col-md-2">
+			<a href="" id="alert_confirm" class="btn btn-primary w-100">Acciones</a>
+		</div>
 	</div>
 </body>
 </html>
